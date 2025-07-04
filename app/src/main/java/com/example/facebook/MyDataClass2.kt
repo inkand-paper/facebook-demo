@@ -1,8 +1,8 @@
 package com.example.facebook
 
 data class MyDataClass2(
-    var profile: Int,
+    var profile: String,
     var name: String,
     var time: String,
-    var picture: Int
+    var picture: String
 )

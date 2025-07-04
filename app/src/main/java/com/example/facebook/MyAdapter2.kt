@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class MyAdapter2(private val data: ArrayList<MyDataClass2>):RecyclerView.Adapter<MyAdapter2.MyViewHolder2>() {
     class MyViewHolder2(itemView: View):RecyclerView.ViewHolder(itemView) {
@@ -26,10 +27,10 @@ class MyAdapter2(private val data: ArrayList<MyDataClass2>):RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: MyViewHolder2, position: Int) {
         val singleData = data[position]
-        holder.profile.setImageResource(singleData.profile)
+        Glide.with(holder.profile).load(singleData.profile).into(holder.profile)
         holder.name.text = singleData.name
         holder.time.text = singleData.time
-        holder.post.setImageResource(singleData.picture)
+        Glide.with(holder.post).load(singleData.picture).into(holder.post)
     }
 
 }

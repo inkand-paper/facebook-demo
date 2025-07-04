@@ -62,6 +62,7 @@
             app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/FsName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -85,6 +86,7 @@
             app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/LsName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -115,6 +117,7 @@
         app:layout_constraintTop_toBottomOf="@id/LinearLayout2">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -144,6 +147,7 @@
         app:layout_constraintTop_toBottomOf="@id/CreateAccountLayout3">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -173,6 +177,7 @@
         app:layout_constraintTop_toBottomOf="@id/CreateAccountLayout4">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"

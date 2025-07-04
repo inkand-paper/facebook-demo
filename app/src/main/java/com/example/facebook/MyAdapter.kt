@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 
 class MyAdapter(private val data:ArrayList<MyDataClass>):RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
@@ -25,7 +26,7 @@ class MyAdapter(private val data:ArrayList<MyDataClass>):RecyclerView.Adapter<My
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val singleData = data[position]
-        holder.storyPicture.setImageResource(singleData.story)
-        holder.profilePicture.setImageResource(singleData.profilePic)
+        Glide.with(holder.profilePicture.context).load(singleData.profilePic).into(holder.profilePicture)
+        Glide.with(holder.storyPicture.context).load(singleData.story).into(holder.storyPicture)
     }
 }

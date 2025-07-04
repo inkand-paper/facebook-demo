@@ -1,20 +1,53 @@
 package com.example.facebook
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.facebook.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.LoginBtn.setOnClickListener {
+            homePage()
+        }
+        binding.CreateAccountBtn.setOnClickListener {
+            createPage()
+        }
+
+    }
+
+    private fun createPage() {
+        val intent = Intent(this,createAccount::class.java)
+        startActivity(intent)
+    }
+
+    private fun homePage() {
+        val email = binding.Email.text.toString()
+        val password = binding.Password.text.toString()
+
+        var isValid = true
+
+        if (email.isEmpty()){
+            binding.LoginLayout1.error = "Complete This Field"
+            isValid = false
+        }
+        if (password.isEmpty()){
+            binding.LoginLayout2.error = "Complete This Field"
+            isValid = false
+        }
+        if (isValid){
+            val intent = Intent(this,home_page::class.java)
+            startActivity(intent)
         }
     }
 }
