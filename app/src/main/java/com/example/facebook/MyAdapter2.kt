@@ -27,10 +27,10 @@ class MyAdapter2(private val data: ArrayList<MyDataClass2>):RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: MyViewHolder2, position: Int) {
         val singleData = data[position]
-        Glide.with(holder.profile).load(singleData.profile).into(holder.profile)
+        holder.profile.setImageResource(singleData.profile)
         holder.name.text = singleData.name
         holder.time.text = singleData.time
-        Glide.with(holder.post).load(singleData.picture).into(holder.post)
+        holder.post.setImageResource(singleData.picture)
     }
 
 }
